@@ -7,7 +7,7 @@ class MatchService extends GenericService {
   deleteMatch = (_id) => this.delete("matchs/" + _id);
   updateMatch = (_id, data) => this.put("matchs/" + _id, data);
   getMatch = (page = 1, perPage = 10) =>
-    this.get("matchs?page=" + page + "&perPage=" + perPage);
+    this.get("matches?page=" + page + "&perPage=" + perPage);
   getSingleMatch = (id) => this.get("matchs/" + id);
 }
 

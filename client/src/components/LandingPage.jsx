@@ -1,14 +1,3 @@
-// import React from "react";
-// const LandingPage = () => {
-//   return (
-//     <div>
-//       <h1>Landing Page</h1>
-//     </div>
-//   );
-// };
-
-// export default LandingPage;
-
 import React from "react";
 import SingleMatch from "./match/SingleMatch";
 import Pagination from "@material-ui/lab/Pagination";
@@ -40,6 +29,7 @@ const LandingPage = (props) => {
       .then((data) => {
         setMatch(data.matchs);
         setTotal(data.total);
+        console.log("Data is fetcheddddd");
         console.log(data.matchs);
       })
       .catch((err) => {
@@ -47,9 +37,9 @@ const LandingPage = (props) => {
       });
   };
 
-  // getData();
+  getData();
   React.useEffect(getData, [page, perPage]);
-  // console.log("Inside Products Component");
+  console.log("Inside Products Component");
   const handleNewMatchClick = () => {
     console.log(props);
     props.history.push("/matchs/new");
@@ -82,7 +72,7 @@ const LandingPage = (props) => {
       ) : (
         <Grid container spacing={3}>
           {matchs.map((match, index) => (
-            <SingleMatch key={index} match={match} />
+            <SingleMatch key={index} match={match} onDelete={getData} />
           ))}
         </Grid>
       )}
