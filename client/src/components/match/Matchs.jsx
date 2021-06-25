@@ -16,17 +16,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Matches = (props) => {
-  const [matches, setMatches] = React.useState([]);
+const Matchs = (props) => {
+  const [matchs, setMatchs] = React.useState([]);
   const classes = useStyles();
   const page = props.match.params.page ? props.match.params.page : 1;
   const [total, setTotal] = React.useState(0);
   const [perPage, setPerPage] = React.useState(10);
   const getData = () => {
     matchService
-      .getMatches(page, perPage)
+      .getMatchs(page, perPage)
       .then((data) => {
-        setMatches(data.matches);
+        setMatchs(data.matchs);
         setTotal(data.total);
       })
       .catch((err) => {
@@ -38,7 +38,7 @@ const Matches = (props) => {
   // console.log("Inside Match Component");
   const handleNewMatchClick = () => {
     console.log(props);
-    props.history.push("/matches/new");
+    props.history.push("/matchs/new");
   };
   return (
     <div>
@@ -62,11 +62,11 @@ const Matches = (props) => {
           <AddIcon />
         </Fab>
       )}
-      {matches.length == 0 ? (
+      {matchs.length == 0 ? (
         <p>There are no matches</p>
       ) : (
         <Grid container spacing={3}>
-          {matches.map((match, index) => (
+          {matchs.map((match, index) => (
             <SingleMatch key={index} match={match} onDelete={getData} />
           ))}
         </Grid>
@@ -78,14 +78,14 @@ const Matches = (props) => {
           shape="rounded"
           onChange={(e, value) => {
             console.log(value);
-            props.history.push("/matches/" + value);
+            props.history.push("/matchs/" + value);
           }}
         />{" "}
         Total: {total} Showing {(page - 1) * perPage} to{" "}
-        {(page - 1) * perPage + matches.length}
+        {(page - 1) * perPage + matchs.length}
       </Grid>
     </div>
   );
 };
 
-export default Matches;
+export default Matchs;

@@ -8,7 +8,7 @@ class MatchService extends GenericService {
   updateMatch = (_id, data) => this.put("matchs/" + _id, data);
   getMatch = (page = 1, perPage = 10) =>
     this.get("matchs?page=" + page + "&perPage=" + perPage);
-  getSingleMatch = (id) => this.get("matches/" + id);
+  getSingleMatch = (id) => this.get("matchs/" + id);
 }
 
 let matchService = new MatchService();

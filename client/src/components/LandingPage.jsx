@@ -46,6 +46,7 @@ const LandingPage = (props) => {
         console.log(err);
       });
   };
+
   // getData();
   React.useEffect(getData, [page, perPage]);
   // console.log("Inside Products Component");
