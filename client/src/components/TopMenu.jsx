@@ -21,11 +21,11 @@ const TopMenu = () => {
             Home
           </Link>
         </Typography>
-        {/* <Typography variant="h6">
-          <Link to="/products" className={classes.link}>
+        <Typography variant="h6">
+          <Link to="/Matches" className={classes.link}>
             Matches
           </Link>
-        </Typography> */}
+        </Typography>
 
         {!userService.isLoggedIn() ? (
           <>
