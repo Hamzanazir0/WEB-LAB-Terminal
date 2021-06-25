@@ -1,0 +1,4 @@
+{
+  "db": "mongodb://localhost/psl",
+  "jwtPrivateKey": "iAmHamza"
+}
